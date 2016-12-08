@@ -1,0 +1,15 @@
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>Dispatcher</servlet-name>
+        <servlet-class>com.qinliming.eweb.web.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>configClass</param-name>
+            <param-value>com.qinliming.eweb.example.Config</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Dispatcher</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+</web-app>
