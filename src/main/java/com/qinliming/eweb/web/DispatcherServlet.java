@@ -9,6 +9,7 @@ import com.qinliming.eweb.example.Controller;
 import com.qinliming.eweb.web.module.RouteModule;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Set;
 
@@ -46,8 +47,13 @@ public class DispatcherServlet implements Servlet{
         return null;
     }
 
+    private String getURI(HttpServletRequest request){
+        return  request.getRequestURI();
+    }
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+        String uri = this.getURI((HttpServletRequest) req);
+        System.out.println(uri);
         System.out.println(container.getBean(Controller.class));
         res.getWriter().write("heheda~~~~~~~~");
     }

@@ -35,7 +35,6 @@ final public class RouteMapper {
             String[] route = this.getMap(s);
             Action action = container.getBean(Action.class);
             action.setRequestMethod(route[0]);
-
             Method method;
             routeMap.put(route[1],action);
         }
