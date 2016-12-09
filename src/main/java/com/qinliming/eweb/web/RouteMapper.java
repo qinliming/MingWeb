@@ -17,6 +17,24 @@ final public class RouteMapper {
     private static final String SPACE = " ";
     private static final String POINT = ".";
 
+    public static Parameter[] getParameters(String method) throws ClassNotFoundException {
+        Integer begin = method.indexOf("(");
+        Integer end = method.indexOf(")");
+        String params = method.substring(begin + 1, end);
+        String[] paramsList = params.split(",");
+        Parameter[] parameters = new Parameter[paramsList.length];
+        Integer i = 0;
+        for (String para : paramsList) {
+            Parameter parameter = new Parameter();
+            String[] paraPiece = para.split(" ");
+            String className = "java.lang." + paraPiece[0];
+            Class clazz = Class.forName(className);
+            parameter.setClazz(clazz);
+            parameter.setParamName(paraPiece[1]);
+            parameters[i++] = parameter;
+        }
+        return parameters;
+    }
     private String[] getMap(String route) {
         String[] result = new String[3];
         route = route.trim();

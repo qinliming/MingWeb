@@ -12,6 +12,19 @@ public class Action {
     private Method method;
     private String requestMethod;
     private String classPath;
+    private Parameter[] parameters;
+
+    public static Map<String, Object> getControllerMap() {
+        return controllerMap;
+    }
+
+    public Parameter[] getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(Parameter[] parameters) {
+        this.parameters = parameters;
+    }
 
     public String getClassPath() {
         return classPath;
