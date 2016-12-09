@@ -2,8 +2,6 @@ package com.qinliming.eweb.config;
 
 import com.google.inject.Module;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 /**
