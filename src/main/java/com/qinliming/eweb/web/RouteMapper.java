@@ -46,15 +46,30 @@ final public class RouteMapper {
         result[2] = tmpResult[2]+route.substring(point);
         return result;
     }
-
+    private String[] getClassPath(String m){
+        String[] classPiece = new String[2];
+        Integer point = m.lastIndexOf(POINT);
+        System.out.println(m.substring(0,point));
+        System.out.println(m.substring(point+1));
+        return classPiece;
+    }
     public void init(String[] list,Container container) {
         RouteMapper.container = container;
         for (String s : list) {
             String[] route = this.getMap(s);
+            for (String r:route){
+                System.out.println(r);
+            }
+            this.getClassPath(route[2]);
             Action action = container.getBean(Action.class);
-            action.setRequestMethod(route[0]);
-            Method method;
-            routeMap.put(route[1],action);
+            String method = route[0];
+            action.setRequestMethod(method);
+
+//            System.out.println(action);
+//
+//            action.setRequestMethod(method);
+           // Method method;
+           // routeMap.put(route[1],action);
         }
     }
 }
